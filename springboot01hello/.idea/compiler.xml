@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-boot-01-hello" />
+        <module name="spring-boot-01-init-02" />
+        <module name="spring-boot-02-config" />
+        <module name="spring-boot-02-config-02" />
+        <module name="spring-boot-03-logging" />
+        <module name="spring-boot-04-web" />
+        <module name="spring-boot-05-bill" />
+        <module name="spring-boot-05-bill (1)" />
+        <module name="spring-boot-06-servlet" />
+        <module name="spring-boot-07-tomcat" />
+        <module name="spring-boot-08-data" />
+        <module name="spring-boot-08-data-mybatis" />
+        <module name="spring-boot-09-data-jpa" />
+        <module name="spring-boot-10-bill" />
+        <module name="spring-boot-11-task" />
+        <module name="spring-boot-12-mail" />
+        <module name="spring-boot-13-cache" />
+        <module name="springboot01hello" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-boot-01-hello" target="1.8" />
+      <module name="spring-boot-01-init-02" target="1.8" />
+      <module name="spring-boot-02-config" target="1.8" />
+      <module name="spring-boot-02-config-02" target="1.8" />
+      <module name="spring-boot-03-logging" target="1.8" />
+      <module name="spring-boot-04-web" target="1.8" />
+      <module name="spring-boot-05-bill" target="1.8" />
+      <module name="spring-boot-05-bill (1)" target="1.8" />
+      <module name="spring-boot-06-servlet" target="1.8" />
+      <module name="spring-boot-07-tomcat" target="1.8" />
+      <module name="spring-boot-08-data" target="1.8" />
+      <module name="spring-boot-08-data-mybatis" target="1.8" />
+      <module name="spring-boot-09-data-jpa" target="1.8" />
+      <module name="spring-boot-10-bill" target="1.8" />
+      <module name="spring-boot-11-task" target="1.8" />
+      <module name="spring-boot-12-mail" target="1.8" />
+      <module name="spring-boot-13-cache" target="1.8" />
+      <module name="springboot01hello" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

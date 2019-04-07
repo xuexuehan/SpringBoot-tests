@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../spring-boot-07-tomcat" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-01-init-02/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-02-config/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-02-config-02/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-03-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-04-web/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-05-bill/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-06-servlet/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-07-tomcat/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-08-data/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-08-data-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-09-data-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-10-bill/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-11-task/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-12-mail/pom.xml" />
+        <option value="$PROJECT_DIR$/../spring-boot-13-cache/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

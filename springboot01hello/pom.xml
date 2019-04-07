@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.springboot</groupId>
+    <artifactId>spring-boot-01-hello</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+     spring-boot-starter-parent：是当前项目的父依赖
+     spring-boot-starter-parent继承spring-boot-dependencies
+     spring-boot-dependencies里面定义了很多组件版本号，我们引用对应依赖时，不需要写<version>
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.6.RELEASE</version>
+    </parent>
+    <!--
+    spring-boot-starter-web：构建web项目，比如：Tomcat、SpringMVC
+    spring-boot-starter：它是SpringBoot的场景启动器，针对不同场景定义了很多不同的场景启动器
+    你的项目需要哪些场景启动器，则直接依赖对应的启动器就可以了
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+    <!--将当前项目打成一个jar包运行-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

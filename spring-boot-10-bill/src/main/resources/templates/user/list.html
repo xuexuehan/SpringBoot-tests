@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+    <section class="publicMian ">
+        <div class="left" th:replace="main/public :: #public_left(activeUri='user')">
+
+        </div>
+        <div class="right">
+            <div class="location">
+                <strong>你现在所在的位置是:</strong>
+                <span>用户管理页面</span>
+            </div>
+            <form id="searchForm" th:href="@{/users}" th:method="get">
+                <div class="search">
+                    <span>用户名：</span>
+                    <input type="text" th:value="${username}" name="username" placeholder="请输入用户名"/>
+                    <input type="button" value="查询" onclick="$('#searchForm').submit()"/>
+                    <a th:href="@{/user}" href="add.html">添加用户</a>
+                </div>
+            </form>
+            <!--用户-->
+            <table class="providerTable" cellpadding="0" cellspacing="0">
+                <tr class="firstTr">
+                    <th width="10%">用户名</th>
+                    <th width="20%">真实姓名</th>
+                    <th width="10%">性别</th>
+                    <th width="10%">出生日期</th>
+                    <th width="10%">用户类型</th>
+                    <th width="30%">操作</th>
+                </tr>
+                <tr th:each="user : ${users}">
+                    <input th:type="hidden" name="id" th:value="${user.id}">
+                    <td th:text="${user.username}">hanlu</td>
+                    <td th:text="${user.realName}">韩露</td>
+                    <td th:text="${user.gender} == 1 ? '女' : '男'">女</td>
+                    <td th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}">1989/10/10</td>
+                    <td th:text="${user.userType == 1 ? '管理员' : (user.userType==2 ?'经理':'普通用户')}">经理</td>
+                    <td>
+                        <a th:href="@{/user/} + ${user.id}" href="view.html"><img src="../img/read.png" alt="查看" title="查看"/></a>
+                        <a th:href="@{/user/} + ${user.id} + '?type=update'" href="update.html"><img src="../img/xiugai.png" alt="修改" title="修改"/></a>
+                        <a th:attr="del_uri=@{/user/}+${user.id}" href="#" class="delete"><img src="../img/schu.png" alt="删除" title="删除"/></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+	<!--点击删除按钮后弹出的页面-->
+	<div class="zhezhao"></div>
+	<form method="post" id="deleteForm">
+		<input type="hidden" name="_method" value="delete">
+		<div class="remove" id="removeProv">
+		   <div class="removerChid">
+			   <h2>提示</h2>
+			   <div class="removeMain" >
+				   <p>你确定要删除吗？</p>
+				   <a href="#" id="yes">确定</a>
+				   <a href="#" id="no">取消</a>
+			   </div>
+		   </div>
+		</div>
+	</form>
+
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+<script src="../js/jquery.js"></script>
+<script src="../js/js.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left" th:replace="main/public :: #public_left(activeUri='user')">
+
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>用户管理页面 >> 用户修改页面</span>
+        </div>
+        <div class="providerAdd">
+            <form id="updateForm" th:action="@{/user}" th:method="post" action="#">
+                <input th:type="hidden" name="_method" value="put">
+                <input th:type="hidden" name="id" th:value="${user.id}">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div>
+                    <label for="username">用户名：</label>
+                    <input th:value="${user.username}" type="text" name="username" id="username" placeholder="xxx"/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label for="realName">真实姓名：</label>
+                    <input th:value="${user.realName}" type="text" name="realName" id="realName" placeholder="韩露"/>
+                    <span >*</span>
+                </div>
+
+                <div>
+                    <label >用户性别：</label>
+
+                    <select name="gender">
+                        <option th:field="${user.gender}" value="1">女</option>
+                        <option th:field="${user.gender}" value="2">男</option>
+                    </select>
+                </div>
+                <!--<div>-->
+                    <!--<label for="birthday">出生日期：</label>-->
+                    <!--<input th:value="${#dates.format(user.birthday, 'yyyy-MM-dd')}" type="text" name="birthday" id="birthday" placeholder="2016年2月1日"/>-->
+                    <!--<span >*</span>-->
+                <!--</div>-->
+                <div>
+                    <label >用户类别：</label>
+                    <input th:field="${user.userType}" type="radio" name="userType" value="1" />管理员
+                    <input th:field="${user.userType}" type="radio" name="userType" value="2" />经理
+                    <input th:field="${user.userType}" type="radio" name="userType" value="3"/>普通用户
+                </div>
+                <div class="providerAddBtn">
+                    <!--<a href="#">保存</a>-->
+                    <!--<a href="userList.html">返回</a>-->
+                    <input type="button" value="保存" onclick="$('#updateForm').submit()"/>
+                    <input th:href="@{/users}" type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+<script src="../js/jquery.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>模板文件</title>
+</head>
+<body>
+    <h2>成功！</h2>
+    <br>
+    <!--th:text会将获取到的数据写到标签体中-->
+    <p th:text="${name}">显示名字</p>
+
+    <!--引入公共代码片段-->
+
+    <!--
+        header 是文件名
+        header_common 声明fragment属性值
+    -->
+    <div th:replace="header :: header_common"></div>
+
+    <!--
+        th:insert 和 th:replace的区别
+        th:insert和th:replace都可以引入片段，两者的区别在于
+        th:insert： 保留引入时使用的标签
+        th:replace：不保留引入时使用的标签, 将声明片段直接覆盖当前引用标签
+    -->
+
+    <div th:replace="header :: #header_common_id" class="success"></div>
+
+    <h2 th:insert="header :: #header_common_id"></h2>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+    <section class="publicMian ">
+        <div class="left" th:replace="main/public :: #public_left(activeUri='bill')">
+
+        </div>
+        <div class="right">
+            <div class="location">
+                <strong>你现在所在的位置是:</strong>
+                <span>账单管理页面</span>
+            </div>
+			<form id="searchForm" th:action="@{/bills}" th:method="get">
+                <div class="search">
+                    <span>商品名称：</span>
+                    <input name="billName" type="text" placeholder="请输入商品的名称"/>
+
+                    <span>供应商：</span>
+                    <select name="pid" >
+                        <option value="">--请选择--</option>
+                        <option value="">北京市粮油总公司</option>
+                        <option value="">邯郸市五得利面粉厂</option>
+                    </select>
+
+                    <span>是否付款：</span>
+                    <select name="pay">
+                        <option value="">--请选择--</option>
+                        <option value="0">未付款</option>
+                        <option value="1">已付款</option>
+                    </select>
+
+                    <input type="button" value="查询" onclick="$('#searchForm').submit()"/>
+                    <a th:href="@{/bill}" href="../bill/add.html">添加帐单</a>
+                </div>
+			</form>
+            <!--账单表格 样式和供应商公用-->
+            <table class="providerTable" cellpadding="0" cellspacing="0">
+                <tr class="firstTr">
+                    <th width="10%">账单编码</th>
+                    <th width="20%">商品名称</th>
+                    <th width="10%">供应商</th>
+                    <th width="10%">总金额</th>
+                    <th width="10%">是否付款</th>
+                    <th width="10%">创建时间</th>
+                    <th width="30%">操作</th>
+                </tr>
+                <tr th:each="b : ${bills}">
+                    <td th:text="${b.bid}">PRO-CODE—001</td>
+                    <td th:text="${b.billName}">测试供应商001</td>
+                    <td th:text="${b.provider.providerName}">北京市粮油总公司</td>
+                    <td th:text="${b.money}">22.00</td>
+                    <td th:text="${b.pay == 0 ? '未付款' : '已付款'}">未付款</td>
+                    <td th:text="${#dates.format(b.createDate, 'yyyy-MM-dd')}">2015-11-12</td>
+                    <td>
+                        <a th:href="@{/bill/} + ${b.bid}" href="view.html"><img src="../img/read.png" alt="查看" title="查看"/></a>
+                        <a th:href="@{/bill/} + ${b.bid} + '?type=update'" href="update.html"><img src="../img/xiugai.png" alt="修改" title="修改"/></a>
+                        <a th:attr="del_uri=@{/bill/} + ${b.bid}" href="#" class="delete"><img src="../img/schu.png" alt="删除" title="删除"/></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+	<!--点击删除按钮后弹出的页面-->
+	<div class="zhezhao"></div>
+	<form method="post" id="deleteForm">
+		<input type="hidden" name="_method" value="delete">
+		<div class="remove" id="removeProv">
+		   <div class="removerChid">
+			   <h2>提示</h2>
+			   <div class="removeMain" >
+				   <p>你确定要删除吗？</p>
+				   <a href="#" id="yes">确定</a>
+				   <a href="#" id="no">取消</a>
+			   </div>
+		   </div>
+		</div>
+	</form>
+
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/js.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+
+</body>
+</html>

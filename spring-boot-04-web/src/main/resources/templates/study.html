@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>study</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>总记录数</th>
+        <th>偶数/奇数</th>
+        <th>第一个元素</th>
+        <th>最后一个元素</th>
+    </tr>
+    <!--th:each作用在哪个标签上面，对应的就会根据它的值迭代多少次-->
+    <!--
+        user : 第1个值,代表每次迭代出对象,名字任意取
+        iterStat : 第2个值,代表每次迭代器内置对象, 名字任意取, 并有如下属性:
+        index : 当前迭代下标 0 开始
+        count : 当前迭代下标 1 开始
+        size : 获取总记录数
+        current : 当前迭代出的对象
+        even/odd : 当前迭代是偶数还是奇数 (1开始算,返回布尔值)
+        first : 当前是否为第一个元素
+        last : 当前是否为最后一个元素
+    -->
+
+    <tr th:each="user, iterStat: ${userList}">
+        <td th:text="${iterStat.count}">000</td>
+        <td th:text="${user.username}">xxx</td>
+        <td th:text="${user.gender == 1 ? '男' : '女'}">1</td>
+        <td th:text="${iterStat.size}">xxx</td>
+        <td th:text="${iterStat.even}? '偶数' : '奇数'">xxx</td>
+        <td th:text="${iterStat.first}">xxx</td>
+        <td th:text="${iterStat.last}">xxx</td>
+    </tr>
+</table>
+
+<ul>
+    <li th:each="user: ${userList}" th:text="${user.username}"></li>
+</ul>
+
+<hr/>
+<h3 th:if="not ${#lists.isEmpty(userList)}">显示出来则userList集合不为空</h3>
+<h3 th:unless="${#lists.isEmpty(userList)}">显示出来则userList集合不为空</h3>
+<hr/>
+
+<div th:switch="${sex}">
+    <p th:case="${man}">男</p>
+    <p th:case="2">女</p>
+    <p th:case="*">未知</p>
+</div>
+
+<hr/>
+<div th:text="${desc}"></div>
+<div th:utext="${desc}"></div>
+<br/>
+
+<div th:object="${session.user}">
+    <!--上面已经将对象获取出来，下面直接写属性值即可获取到值-->
+    <p>姓名：<span th:text="*{username}"></span></p>
+    <p>性别：<span th:text="*{gender} == 1 ? '男' : '女'"></span></p>
+</div>
+
+<dev>热部署测试......</dev>
+</body>
+</html>

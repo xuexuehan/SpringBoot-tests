@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left" th:replace="main/public :: #public_left(activeUri='bill')">
+
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>账单管理页面 >> 帐单修改页面</span>
+        </div>
+        <div class="providerAdd">
+            <form id="updateForm" th:action="@{/bill}" th:method="post" action="#">
+                <input th:type="hidden" name="_method" value="put">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div class="">
+                    <label for="billCode">帐单编码：</label>
+                    <input th:value="${bill.bid}" type="text" name="billCode" id="billCode" placeholder=""/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label for="billName">商品名称：</label>
+                    <input th:value="${bill.billName}" type="text" name="billName" id="billName" placeholder=""/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label for="billCom">商品单位：</label>
+                    <input th:value="${bill.billCode}" type="text" name="billCom" id="billCom" placeholder=""/>
+                    <span>*</span>
+
+                </div>
+                <div>
+                    <label for="billNum">商品数量：</label>
+                    <input th:value="${bill.billNum}" type="text" name="billNum" id="billNum" placeholder=""/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label for="money">总金额：</label>
+                    <input th:value="${bill.money}" type="text" name="money" id="money" placeholder=""/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label >供应商：</label>
+                    <select name="pid">
+                        <option th:field="${bill.provider.providerName}" value="Promissing供应商111">Promissing供应商111</option>
+                        <option th:field="${bill.provider.providerName}" value="Promissing供应商222">Promissing供应商222</option>
+                        <option th:field="${bill.provider.providerName}" value="Promissing供应商333">Promissing供应商333</option>
+                        <option th:field="${bill.provider.providerName}" value="Promissing供应商444">Promissing供应商444</option>
+                        <option th:field="${bill.provider.providerName}" value="Promissing供应商555">Promissing供应商555</option>
+                    </select>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label>是否付款：</label>
+                    <input type="radio" th:field="${bill.pay}" value="0" name="pay" />未付款
+                    <input type="radio" th:field="${bill.pay}" value="1" name="pay"/>已付款
+                </div>
+                <div class="providerAddBtn">
+                    <!--<a href="#">保存</a>-->
+                    <!--<a href="billList.html">返回</a>-->
+                    <input type="button" value="保存" onclick="$('#updateForm').submit()"/>
+                    <input th:href="@{/bills}" type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+<script src="../js/jquery.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+</body>
+</html>

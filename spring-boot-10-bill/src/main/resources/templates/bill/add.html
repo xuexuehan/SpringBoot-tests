@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left" th:replace="main/public :: #public_left(activeUri='bill')">
+
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>账单管理页面 >> 账单添加页面</span>
+        </div>
+        <div class="providerAdd">
+            <form id="addForm" th:action="@{/bill}" th:method="post" action="#">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div class="">
+                    <label for="billCode">账单编码：</label>
+                    <input type="text" name="billCode" id="billCode" required/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label for="billName">商品名称：</label>
+                    <input type="text" name="billName" id="billName" required/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label for="billCom">商品单位：</label>
+                    <input type="text" name="billCom" id="billCom" required/>
+                    <span>*</span>
+
+                </div>
+                <div>
+                    <label for="billNum">商品数量：</label>
+                    <input type="text" name="billNum" id="billNum" required/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label for="money">总金额：</label>
+                    <input type="text" name="money" id="money" required/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label >供应商：</label>
+                    <select name="pid" >
+                        <option value="请选择--">--请选择相应的供应商--</option>
+                        <option th:each="p : ${providers}" th:value="${p.pid}" th:text="${p.providerName}">Promissing供应商111</option>
+                    </select>
+                    <span>*请选择供应商</span>
+                </div>
+                <div>
+                    <label >是否付款：</label>
+                    <input field="未付款" type="radio" value="0" name="pay" checked />未付款
+                    <input field="已付款" type="radio" value="1" name="pay"/>已付款
+                </div>
+                <div class="providerAddBtn">
+                    <!--<a href="#">保存</a>-->
+                    <!--<a href="billList.html">返回</a>-->
+                    <input type="button" value="保存" onclick="$('#addForm').submit()"/>
+                    <input type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+<script src="../js/jquery.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+</body>
+</html>

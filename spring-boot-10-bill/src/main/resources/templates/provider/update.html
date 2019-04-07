@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left" th:replace="main/public :: #public_left(activeUri='provider')">
+
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>供应商管理页面 >> 供应商修改页</span>
+        </div>
+        <div class="providerAdd">
+            <!--
+                发送put请求修改供应商信息
+                1. 在SpringMVC中配置HiddenHttpMethodFilter（SpringBoot自动配置好了）
+                2. 页面创建一个method="post"表单
+                3. 创建一个input标签 name="_method"，value="指定请求方式"
+            -->
+            <form id="updateForm" th:action="@{/provider}" th:method="post" action="#">
+                <input th:type="hidden" name="_method" value="put">
+                <input th:type="hidden" name="pid" th:value="${provider.pid}">
+                <input th:type="hidden" name="providerCode" th:value="${provider.providerCode}">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div class="">
+                    <label for="providerName">供应商名称：</label>
+                    <input type="text" th:value="${provider.providerName}" name="providerName" id="providerName" placeholder="测试供应商001"/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label for="people">联系人：</label>
+                    <input type="text" th:value="${provider.people}" name="people" id="people" placeholder="韩露"/>
+                    <span>*</span>
+
+                </div>
+                <div>
+                    <label for="phone">联系电话：</label>
+                    <input type="text" th:value="${provider.phone}" name="phone" id="phone" placeholder="15918230478"/>
+                    <span></span>
+                </div>
+                <div>
+                    <label for="address">联系地址：</label>
+                    <input type="text" th:value="${provider.address}" name="address" id="address" placeholder="北京"/>
+                    <span></span>
+
+                </div>
+                <div>
+                    <label for="fax">传真：</label>
+                    <input type="text" th:value="${provider.fax}" name="fax" id="fax" placeholder="15918230478"/>
+                    <span></span>
+
+                </div>
+                <div>
+                    <label for="describe">描述：</label>
+                    <input type="text" th:value="${provider.describe}" name="describe" id="describe" placeholder="描述"/>
+                    <span></span>
+
+                </div>
+                <div class="providerAddBtn">
+                    <!--<a href="#">保存</a>-->
+                    <!--<a href="providerList.html">返回</a>-->
+                    <input type="button" value="保存" onclick="$('#updateForm').submit()"/>
+                    <input th:href="@{/providers}" type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+<script src="../js/jquery.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+</body>
+</html>

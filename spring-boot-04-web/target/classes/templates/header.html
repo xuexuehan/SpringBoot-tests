@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>公共片段</title>
+</head>
+<body>
+    <!--通过th:fragment声明代码片段-->
+    <div th:fragment="header_common">
+        <p>
+            这是声明公共片段
+        </p>
+    </div>
+    <!--通过选择器声明-->
+    <div id="header_common_id">
+        <p>
+            这是id声明公共片段
+        </p>
+    </div>
+</body>
+</html>

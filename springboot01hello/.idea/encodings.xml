@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/../spring-boot-01-init-02" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-02-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-02-config-02" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-03-logging" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-04-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-05-bill" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-06-servlet" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-07-tomcat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-08-data" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-08-data-mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-09-data-jpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-10-bill" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-11-task" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-12-mail" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-13-cache" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

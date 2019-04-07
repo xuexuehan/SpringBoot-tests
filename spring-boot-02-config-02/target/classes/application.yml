@@ -1,0 +1,16 @@
+#server:
+#  port: 8081 #默认配置的端口号
+#spring:
+#  profiles:
+#    active: dev #激活哪个profile
+#---
+#server:
+#  port: 8082
+#spring:
+#  profiles: dev #指定属于哪个环境，dev环境使用
+#
+#---
+#server:
+#  port: 8088
+#spring:
+#  profiles: prod #指定属于哪个环境，prod环境使用

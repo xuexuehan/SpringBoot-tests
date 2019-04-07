@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head">
+
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header">
+
+</header>
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time">
+
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left" th:replace="main/public :: #public_left(activeUri='user')">
+
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>用户管理页面 >> 用户添加页面</span>
+        </div>
+        <div class="providerAdd">
+            <form id="addForm" th:href="@{/user}" th:method="post" action="#">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div class="">
+                    <label for="username">用户名：</label>
+                    <input type="text" name="username" id="username"/>
+                    <span>*请输入用户名，且不能重复</span>
+                </div>
+                <div>
+                    <label for="realName">真实姓名：</label>
+                    <input type="text" name="realName" id="realName"/>
+                    <span >*请输入真实姓名</span>
+                </div>
+                <div>
+                    <label for="userpassword">用户密码：</label>
+                    <input type="text" name="userpassword" id="userpassword"/>
+                    <span>*密码长度必须大于6位小于20位</span>
+
+                </div>
+                <div>
+                    <label for="password">确认密码：</label>
+                    <input type="text" name="password" id="password"/>
+                    <span>*请输入确认密码</span>
+                </div>
+                <div>
+                    <label >用户性别：</label>
+
+                    <select name="gender">
+                        <option value="1" field="女">女</option>
+                        <option value="2" field="男">男</option>
+                    </select>
+                    <span></span>
+                </div>
+                <!--<div>-->
+                    <!--<label for="birthday">出生日期：</label>-->
+                    <!--<input type="text" name="birthday" id="birthday"/>-->
+                    <!--<span >*格式 yyyy-MM-dd </span>-->
+                <!--</div>-->
+                <div>
+                    <label >用户类别：</label>
+                    <input field="管理员" type="radio" name="userType" value="1" />管理员
+                    <input field="经理" type="radio" name="userType" value="2" checked/>经理
+                    <input field="普通用户" type="radio" name="userType" value="3"/>普通用户
+                </div>
+                <div class="providerAddBtn">
+                    <!--<a href="#">保存</a>-->
+                    <!--<a href="userList.html">返回</a>-->
+                    <input type="button" value="保存" onclick="$('#addForm').submit()"/>
+                    <input th:href="@{/users}" type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer" th:replace="main/public :: #public_footer">
+
+</footer>
+<script src="../js/jquery.js"></script>
+<!--
+	<script src="js/time.js"></script>
+	-->
+</body>
+</html>

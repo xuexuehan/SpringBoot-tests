@@ -1,0 +1,20 @@
+#server:
+#  port: 8088
+
+#emp的配置数据
+#emp:
+#  lastName: xuexuehan
+#  age: 18
+#  salary: 20000
+#  boss: true
+#  birthdy: 1995/10/15
+#  map:
+#    key1: value1
+#    key2: value2
+#  list:
+#    - one
+#    - two
+#    - three
+#  forte:
+#    name: java
+#    time: 7
